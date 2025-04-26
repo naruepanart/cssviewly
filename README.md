@@ -1,3 +1,3 @@
-# cssviewly
+# CSSViewly
 
 TODO:

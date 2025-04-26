@@ -49,7 +49,7 @@ var cssviewly_pBox = new Array(
 	'min-width'
 );
 
-var cssviewly_pPositioning = new Array(
+var cssviewly_pPosition = new Array(
 	'position',
 	'top',
 	'bottom',
@@ -102,23 +102,23 @@ var cssviewly_pEffect = new Array(
 var cssviewly_categories = {
 	'pFontText': cssviewly_pFont,
 	'pColorBg': cssviewly_pColorBg,
+	'pEffect': cssviewly_pEffect,
 	'pBox': cssviewly_pBox,
-	'pPositioning': cssviewly_pPositioning,
+	'pPosition': cssviewly_pPosition,
 	'pList': cssviewly_pList,
 	'pTable': cssviewly_pTable,
-	'pMisc': cssviewly_pMisc,
-	'pEffect': cssviewly_pEffect
+	'pMisc': cssviewly_pMisc
 };
 
 var cssviewly_categoriesTitle = {
 	'pFontText': 'Font',
 	'pColorBg': 'Color',
 	'pBox': 'Box',
-	'pPositioning': 'Positioning',
+	'pPosition': 'Position',
 	'pList': 'List',
 	'pTable': 'Table',
-	'pMisc': 'Miscellaneous',
-	'pEffect': 'Effects'
+	'pMisc': 'Misc',
+	'pEffect': 'Effect'
 };
 
 // Table tagnames
@@ -241,7 +241,7 @@ function SetCSSProperty(element, property) {
 	var document = GetCurrentDocument();
 	var li = document.getElementById('cssviewly_' + property);
 
-	li.lastChild.innerHTML = " : " + element.getPropertyValue(property);
+	li.lastChild.innerHTML = element.getPropertyValue(property);
 }
 
 function SetCSSPropertyIf(element, property, condition) {
@@ -249,7 +249,7 @@ function SetCSSPropertyIf(element, property, condition) {
 	var li = document.getElementById('cssviewly_' + property);
 
 	if (condition) {
-		li.lastChild.innerHTML = " : " + element.getPropertyValue(property);
+		li.lastChild.innerHTML = element.getPropertyValue(property);
 		li.style.display = 'block';
 
 		return 1;
@@ -265,7 +265,7 @@ function SetCSSPropertyValue(element, property, value) {
 	var document = GetCurrentDocument();
 	var li = document.getElementById('cssviewly_' + property);
 
-	li.lastChild.innerHTML = " : " + value;
+	li.lastChild.innerHTML = value;
 	li.style.display = 'block';
 }
 
@@ -274,7 +274,7 @@ function SetCSSPropertyValueIf(element, property, value, condition) {
 	var li = document.getElementById('cssviewly_' + property);
 
 	if (condition) {
-		li.lastChild.innerHTML = " : " + value;
+		li.lastChild.innerHTML = value;
 		li.style.display = 'block';
 
 		return 1;
@@ -530,11 +530,11 @@ function cssviewlyMouseOver(e) {
 	// generate simple css definition
 	cssviewly_element_cssDefinition = this.tagName.toLowerCase() + (this.id == '' ? '' : ' #' + this.id) + (this.className == '' ? '' : ' .' + this.className) + " {\n";
 
-	cssviewly_element_cssDefinition += "\t/* Font & Text */\n";
+	cssviewly_element_cssDefinition += "\t/* Font */\n";
 	for (var i = 0; i < cssviewly_pFont.length; i++)
 		cssviewly_element_cssDefinition += "\t" + cssviewly_pFont[i] + ': ' + element.getPropertyValue(cssviewly_pFont[i]) + ";\n";
 
-	cssviewly_element_cssDefinition += "\n\t/* Color & Background */\n";
+	cssviewly_element_cssDefinition += "\n\t/* Color */\n";
 	for (var i = 0; i < cssviewly_pColorBg.length; i++)
 		cssviewly_element_cssDefinition += "\t" + cssviewly_pColorBg[i] + ': ' + element.getPropertyValue(cssviewly_pColorBg[i]) + ";\n";
 
@@ -542,9 +542,9 @@ function cssviewlyMouseOver(e) {
 	for (var i = 0; i < cssviewly_pBox.length; i++)
 		cssviewly_element_cssDefinition += "\t" + cssviewly_pBox[i] + ': ' + element.getPropertyValue(cssviewly_pBox[i]) + ";\n";
 
-	cssviewly_element_cssDefinition += "\n\t/* Positioning */\n";
-	for (var i = 0; i < cssviewly_pPositioning.length; i++)
-		cssviewly_element_cssDefinition += "\t" + cssviewly_pPositioning[i] + ': ' + element.getPropertyValue(cssviewly_pPositioning[i]) + ";\n";
+	cssviewly_element_cssDefinition += "\n\t/* Position */\n";
+	for (var i = 0; i < cssviewly_pPosition.length; i++)
+		cssviewly_element_cssDefinition += "\t" + cssviewly_pPosition[i] + ': ' + element.getPropertyValue(cssviewly_pPosition[i]) + ";\n";
 
 	cssviewly_element_cssDefinition += "\n\t/* List */\n";
 	for (var i = 0; i < cssviewly_pList.length; i++)
@@ -554,13 +554,13 @@ function cssviewlyMouseOver(e) {
 	for (var i = 0; i < cssviewly_pTable.length; i++)
 		cssviewly_element_cssDefinition += "\t" + cssviewly_pTable[i] + ': ' + element.getPropertyValue(cssviewly_pTable[i]) + ";\n";
 
-	cssviewly_element_cssDefinition += "\n\t/* Miscellaneous */\n";
-	for (var i = 0; i < cssviewly_pMisc.length; i++)
-		cssviewly_element_cssDefinition += "\t" + cssviewly_pMisc[i] + ': ' + element.getPropertyValue(cssviewly_pMisc[i]) + ";\n";
-
-	cssviewly_element_cssDefinition += "\n\t/* Effects */\n";
+	cssviewly_element_cssDefinition += "\n\t/* Effect */\n";
 	for (var i = 0; i < cssviewly_pEffect.length; i++)
 		cssviewly_element_cssDefinition += "\t" + cssviewly_pEffect[i] + ': ' + element.getPropertyValue(cssviewly_pEffect[i]) + ";\n";
+
+	cssviewly_element_cssDefinition += "\n\t/* Misc */\n";
+	for (var i = 0; i < cssviewly_pMisc.length; i++)
+		cssviewly_element_cssDefinition += "\t" + cssviewly_pMisc[i] + ': ' + element.getPropertyValue(cssviewly_pMisc[i]) + ";\n";
 
 	cssviewly_element_cssDefinition += "}";
 
@@ -630,9 +630,9 @@ function cssviewlyIsElementInViewport(el) {
 }
 
 /*
-* cssviewly Class
+* CSSViewly Class
 */
-function cssviewly() {
+function CSSViewly() {
 	// Create a block to display informations
 	this.CreateBlock = function () {
 		var document = GetCurrentDocument();
@@ -697,11 +697,11 @@ function cssviewly() {
 			footer.id = 'cssviewly_footer';
 
 			//< 
-			footer.appendChild(document.createTextNode('Keys: [f] Un/Freeze. [c] Css. [Esc] Close.'));
+			footer.appendChild(document.createTextNode('[F] Freeze/UnFreeze [C] CSS [ESC] Close'));
 			block.appendChild(footer);
 		}
 
-		cssviewlyInsertMessage("cssviewly loaded! Hover any element you want to inspect in the page.");
+		cssviewlyInsertMessage("CSSViewly Ready.");
 
 		return block;
 	}
@@ -796,9 +796,9 @@ function cssviewly() {
 }
 
 /*
-* Check if cssviewly is enabled
+* Check if CSSViewly is enabled
 */
-cssviewly.prototype.IsEnabled = function () {
+CSSViewly.prototype.IsEnabled = function () {
 	var document = GetCurrentDocument();
 
 	if (document.getElementById('cssviewly_block')) {
@@ -809,9 +809,9 @@ cssviewly.prototype.IsEnabled = function () {
 }
 
 /*
-* Enable cssviewly
+* Enable CSSViewly
 */
-cssviewly.prototype.Enable = function () {
+CSSViewly.prototype.Enable = function () {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('cssviewly_block');
 
@@ -827,9 +827,9 @@ cssviewly.prototype.Enable = function () {
 }
 
 /*
-* Disable cssviewly
+* Disable CSSViewly
 */
-cssviewly.prototype.Disable = function () {
+CSSViewly.prototype.Disable = function () {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('cssviewly_block');
 	var insertMessage = document.getElementById("cssviewlyInsertMessage");
@@ -846,9 +846,9 @@ cssviewly.prototype.Disable = function () {
 }
 
 /*
-* Freeze cssviewly
+* Freeze CSSViewly
 */
-cssviewly.prototype.Freeze = function () {
+CSSViewly.prototype.Freeze = function () {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('cssviewly_block');
 	if (block && this.haveEventListeners) {
@@ -861,9 +861,9 @@ cssviewly.prototype.Freeze = function () {
 }
 
 /*
-* Unfreeze cssviewly
+* Unfreeze CSSViewly
 */
-cssviewly.prototype.Unfreeze = function () {
+CSSViewly.prototype.Unfreeze = function () {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('cssviewly_block');
 	if (block && !this.haveEventListeners) {
@@ -894,12 +894,6 @@ function cssviewlyInsertMessage(msg) {
 	oNewP.style.zIndex = '9999';
 	oNewP.style.padding = '3px';
 
-	// https://github.com/miled/cssviewly/issues/5
-	// https://github.com/miled/cssviewly/issues/6
-	// var beforeMe = document.getElementsByTagName("body");
-	// document.body.insertBefore( oNewP, beforeMe[0] );
-
-	// https://github.com/zchee/cssviewly/commit/dad107d27e94aabeb6e11b935ad28c4ff251f895
 	document.body.appendChild(oNewP);
 }
 
@@ -933,26 +927,26 @@ function cssviewlyCopyCssToConsole(type) {
 *  Freeze css viewer on clicking 'f' key
 */
 function cssviewlyKeyMap(e) {
-	if (!cssviewly.IsEnabled())
+	if (!CSSViewly.IsEnabled())
 		return;
 
-	// ESC: Close the css viewer if the cssviewly is enabled.
+	// ESC: Close the css viewer if the CSSViewly is enabled.
 	if (e.keyCode === 27) {
 		// Remove the red outline
 		cssviewly_current_element.style.outline = '';
-		cssviewly.Disable();
+		CSSViewly.Disable();
 	}
 
 	if (e.altKey || e.ctrlKey)
 		return;
 
-	// f: Freeze or Unfreeze the css viewer if the cssviewly is enabled
+	// f: Freeze or Unfreeze the css viewer if the CSSViewly is enabled
 	if (e.keyCode === 70) {
-		if (cssviewly.haveEventListeners) {
-			cssviewly.Freeze();
+		if (CSSViewly.haveEventListeners) {
+			CSSViewly.Freeze();
 		}
 		else {
-			cssviewly.Unfreeze();
+			CSSViewly.Unfreeze();
 		}
 	}
 
@@ -965,16 +959,16 @@ function cssviewlyKeyMap(e) {
 
 
 /*
-* cssviewly entry-point
+* CSSViewly entry-point
 */
-cssviewly = new cssviewly();
+CSSViewly = new CSSViewly();
 
-if (cssviewly.IsEnabled()) {
-	cssviewly.Disable();
+if (CSSViewly.IsEnabled()) {
+	CSSViewly.Disable();
 }
 else {
-	cssviewly.Enable();
+	CSSViewly.Enable();
 }
 
-// Set event handler for the cssviewly 
+// Set event handler for the CSSViewly 
 document.onkeydown = cssviewlyKeyMap;

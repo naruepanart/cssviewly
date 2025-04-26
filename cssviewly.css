@@ -1,58 +1,58 @@
 #cssviewly_block {
 	font-family: "Inter", sans-serif;
 	font-size: 10px;
+	color: #ffffff;
 	display: none;
-	min-width: 332px;
+	max-width: 300px;
 	position: absolute;
 	z-index: 9999;
-	color: #fff;
+
 }
 
-#cssviewly_block h1 {
-	text-align: center;
-	background: red;
-	padding: 10px;
-	margin: 0 auto;
-	line-height: 1;
+#cssviewly_block h1,
+#cssviewly_footer {
+	font-family: "Inter", sans-serif;
 	font-size: 12px;
+	color: #ffffff;
+	background: red;
+	text-align: center;
+	padding: 6px 0;
+	margin: auto;
+	line-height: 1.75;
 }
 
 #cssviewly_block h2 {
-	color: #fff;
+	font-family: "Inter", sans-serif;
 	font-size: 14px;
-	padding: 8px 0;
+	color: #ffffff;
+	padding: 6px 0;
+	line-height: 1.75;
 }
 
 #cssviewly_center {
 	padding: 0 10px;
-	background: #000;
-	margin: 0 auto;
-}
-
-#cssviewly_footer {
-	padding: 10px;
-	text-align: center;
-	width: 100%;
-	height: 30px;
-	background: #000;
+	background: #000000;
+	margin: auto;
 }
 
 .cssviewly_category {
-	padding: 5px;
-	background: #000;
+	padding: 4px;
+	background: #000000;
 }
 
 #cssviewly_block ul {
 	list-style: none;
-	width: 282px;
+	max-width: 300px;
+	margin: 0;
+	padding: 0;
 }
 
 #cssviewly_block li {
-	line-height: 20px;
+	line-height: 1.75;
 }
 
 .cssviewly_property {
-	color: #fff;
+	color: #ffffff;
 	float: left;
 	width: 100px;
 	display: block;
