@@ -1,0 +1,52 @@
+{
+	"name": "CSSViewly",
+	"manifest_version": 3,
+	"version": "0.1",
+	"description": "CSSViewly helps you quickly inspect CSS properties of elements on any web page.",
+	"icons": {
+		"16": "images/icon16.png",
+		"22": "images/icon22.png",
+		"24": "images/icon24.png",
+		"32": "images/icon32.png",
+		"48": "images/icon48.png"
+	},
+	"options_page": "option.html",
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {
+		"default_icon": {
+			"16": "images/icon16.png",
+			"32": "images/icon32.png"
+		},
+		"default_title": "CSSViewly"
+	},
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"images/icon.png"
+			],
+			"matches": [
+				"<all_urls>"
+			]
+		}
+	],
+	"permissions": [
+		"activeTab",
+		"scripting",
+		"contextMenus",
+		"notifications"
+	],
+	"host_permissions": [
+		"<all_urls>"
+	],
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+S",
+				"mac": "Command+Shift+S"
+			},
+			"description": "shortcut keyboard for CSSViewly"
+		}
+	}
+}

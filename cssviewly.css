@@ -1,0 +1,60 @@
+#cssviewly_block {
+	font-family: "Inter", sans-serif;
+	font-size: 10px;
+	display: none;
+	min-width: 332px;
+	position: absolute;
+	z-index: 9999;
+	color: #fff;
+}
+
+#cssviewly_block h1 {
+	text-align: center;
+	background: red;
+	padding: 10px;
+	margin: 0 auto;
+	line-height: 1;
+	font-size: 12px;
+}
+
+#cssviewly_block h2 {
+	color: #fff;
+	font-size: 14px;
+	padding: 8px 0;
+}
+
+#cssviewly_center {
+	padding: 0 10px;
+	background: #000;
+	margin: 0 auto;
+}
+
+#cssviewly_footer {
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+	height: 30px;
+	background: #000;
+}
+
+.cssviewly_category {
+	padding: 5px;
+	background: #000;
+}
+
+#cssviewly_block ul {
+	list-style: none;
+	width: 282px;
+}
+
+#cssviewly_block li {
+	line-height: 20px;
+}
+
+.cssviewly_property {
+	color: #fff;
+	float: left;
+	width: 100px;
+	display: block;
+	overflow: hidden;
+}
